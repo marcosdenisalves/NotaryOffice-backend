@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import com.docketproject.notaryoffice.service.DBService;
 
@@ -30,11 +27,5 @@ public class Config {
 
 		dbService.instantiateTestDatabase();
 		return true;
-	}
-
-	@Bean
-	public WebClient webClient(WebClient.Builder builder) {
-		return builder.baseUrl("https://docketdesafiobackend.herokuapp.com")
-				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).build();
 	}
 }
