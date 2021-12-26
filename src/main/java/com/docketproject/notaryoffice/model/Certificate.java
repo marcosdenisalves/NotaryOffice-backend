@@ -6,9 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Certificate implements Serializable {
@@ -18,10 +15,6 @@ public class Certificate implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-
-	@ManyToOne
-	@JsonIgnore
-	private NotaryOffice notaryOffice;
 
 	public Certificate() {
 	}
@@ -45,13 +38,5 @@ public class Certificate implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public NotaryOffice getNotaryOffice() {
-		return notaryOffice;
-	}
-
-	public void setNotaryOffice(NotaryOffice notaryOffice) {
-		this.notaryOffice = notaryOffice;
 	}
 }

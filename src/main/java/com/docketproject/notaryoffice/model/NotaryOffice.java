@@ -10,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,7 +27,10 @@ public class NotaryOffice implements Serializable {
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
 
-	@OneToMany(mappedBy = "notaryOffice", cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "certificate_by_notaryoffice",
+			joinColumns = @JoinColumn(name = "notaryoffice_id"),
+			inverseJoinColumns = @JoinColumn(name = "certificate_id"))
 	private List<Certificate> certificates;
 
 	public NotaryOffice() {
@@ -72,7 +76,7 @@ public class NotaryOffice implements Serializable {
 			if (certificates == null)
 				certificates = new ArrayList<Certificate>();
 		
+		certificate.setId(null);
 		this.certificates.add(certificate);
-		certificate.setNotaryOffice(this);
 	}
 }

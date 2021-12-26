@@ -17,6 +17,4 @@ public class CertificateService {
 	public List<Certificate> findAll() {
 		return repository.findAll();
 	}
-
-	
 }
