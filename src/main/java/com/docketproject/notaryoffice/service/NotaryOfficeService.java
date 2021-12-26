@@ -59,6 +59,7 @@ public class NotaryOfficeService {
 		address.setPhoneNumber(objDto.getPhone());
 		address.setStreet(objDto.getStreet());
 		address.setCity(objDto.getCity());
+		address.setState(objDto.getState());
 		address.setCountry(objDto.getCountry());
 		return address;
 	}

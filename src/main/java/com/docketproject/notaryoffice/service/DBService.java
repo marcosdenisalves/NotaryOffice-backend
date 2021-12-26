@@ -26,7 +26,7 @@ public class DBService {
 		Certificate cft2 = new Certificate(null, "2° Via de Certidão de Nascimento");
 		Certificate cft3 = new Certificate(null, "2° Via de Certidão de Óbito");
 		
-		Address ad1 = new Address(null, "l5uz8hpown@temporary-mail.net", "646-840-7896", "4338 Forest Avenue","New York", "USA");
+		Address ad1 = new Address(null, "l5uz8hpown@temporary-mail.net", "646-840-7896", "4338 Forest Avenue","New York", "New York" ,"USA");
 		NotaryOffice nf1 = new NotaryOffice(null, "The Professional Notary.", ad1, Arrays.asList(cft1));
 
 		ad1.setNotaryOffice(nf1);

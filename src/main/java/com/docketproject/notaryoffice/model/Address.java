@@ -10,6 +10,9 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,6 +24,7 @@ public class Address implements Serializable {
 	private String phoneNumber;
 	private String street;
 	private String city;
+	private String state;
 	private String country;
 
 	@JsonIgnore
@@ -30,68 +34,13 @@ public class Address implements Serializable {
 	public Address() {
 	}
 
-	public Address(Long id, String email, String phoneNumber, String street, String city, String country) {
+	public Address(Long id, String email, String phoneNumber, String street, String city, String state, String country) {
 		this.id = id;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.street = street;
 		this.city = city;
+		this.state = state;
 		this.country = country;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public NotaryOffice getNotaryOffice() {
-		return notaryOffice;
-	}
-
-	public void setNotaryOffice(NotaryOffice notaryOffice) {
-		this.notaryOffice = notaryOffice;
 	}
 }

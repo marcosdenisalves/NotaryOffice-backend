@@ -14,6 +14,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class NotaryOffice implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -41,34 +44,6 @@ public class NotaryOffice implements Serializable {
 		this.name = name;
 		this.address = address;
 		certificates.forEach(x -> addCertificate(x));
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public List<Certificate> getCertificates() {
-		return certificates;
 	}
 
 	public void addCertificate(Certificate certificate) {
