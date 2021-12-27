@@ -1,7 +1,6 @@
 package com.docketproject.notaryoffice.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,10 +13,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class NotaryOffice implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -35,23 +40,4 @@ public class NotaryOffice implements Serializable {
 			joinColumns = @JoinColumn(name = "notaryoffice_id"),
 			inverseJoinColumns = @JoinColumn(name = "certificate_id"))
 	private List<Certificate> certificates;
-
-	public NotaryOffice() {
-	}
-
-	public NotaryOffice(Long id, String name, Address address, List<Certificate> certificates) {
-		this.id = id;
-		this.name = name;
-		this.address = address;
-		certificates.forEach(x -> addCertificate(x));
-	}
-
-	public void addCertificate(Certificate certificate) {
-		if (certificate != null)
-			if (certificates == null)
-				certificates = new ArrayList<Certificate>();
-		
-		certificate.setId(null);
-		this.certificates.add(certificate);
-	}
 }

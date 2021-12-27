@@ -10,10 +10,16 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -30,17 +36,4 @@ public class Address implements Serializable {
 	@JsonIgnore
 	@OneToOne(mappedBy = "address")
 	private NotaryOffice notaryOffice;
-
-	public Address() {
-	}
-
-	public Address(Long id, String email, String phoneNumber, String street, String city, String state, String country) {
-		this.id = id;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.street = street;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-	}
 }
